@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lisha Masala | Premium Wholesale Spices</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --lisha-red: #D32F2F;
+            --lisha-orange: #FF6F00;
+            --lisha-gold: #FFD700;
+            --lisha-dark: #212121;
+            --lisha-cream: #FFF8E1;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--lisha-dark);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6, .navbar-brand {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navbar Customization */
+        .navbar {
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+        }
+
+        .navbar-brand {
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            height: 50px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+        
+        .navbar-brand:hover img {
+            transform: scale(1.05);
+        }
+
+        .nav-link {
+            color: #333;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--lisha-red);
+        }
+
+        /* Custom hamburger/toggler animation */
+        .navbar-toggler.custom-toggler {
+            border: 2px solid rgba(33,33,33,0.08);
+            background: rgba(255,255,255,0.9);
+            width: 56px;
+            height: 46px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            padding: 0.25rem;
+            border-radius: 10px;
+        }
+
+        .navbar-toggler.custom-toggler:focus { outline: none; box-shadow: none; }
+
+        .navbar-toggler .navbar-toggler-icon { display: none; }
+
+        .hamburger {
+            width: 34px;
+            height: 20px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .hamburger span {
+            display: block;
+            position: absolute;
+            left: 0;
+            height: 3px;
+            width: 100%;
+            background: #bdbdbd; /* light grey hamburger bars */
+            border-radius: 2px;
+            transition: transform 300ms cubic-bezier(.4,0,.2,1), opacity 200ms ease, top 300ms cubic-bezier(.4,0,.2,1);
+        }
+
+        .hamburger span:nth-child(1) { top: 0; }
+        .hamburger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+        .hamburger span:nth-child(3) { bottom: 0; }
+
+        /* Open state -> morph bars into an X */
+        .navbar-toggler.custom-toggler.open .hamburger span:nth-child(1) {
+            top: 50%; transform: translateY(-50%) rotate(45deg);
+        }
+
+        .navbar-toggler.custom-toggler.open .hamburger span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(-10px);
+        }
+
+        .navbar-toggler.custom-toggler.open .hamburger span:nth-child(3) {
+            top: 50%; transform: translateY(-50%) rotate(-45deg);
+        }
+
+        .btn-lisha-red {
+            background-color: var(--lisha-red);
+            color: white;
+            border-radius: 50px;
+            padding: 0.5rem 1.5rem;
+            transition: all 0.3s;
+            border: none;
+        }
+
+        .btn-lisha-red:hover {
+            background-color: #b71c1c;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+        }
+
+        /* Wholesale Badge */
+        .wholesale-badge {
+            background-color: var(--lisha-dark);
+            color: var(--lisha-gold);
+            font-size: 0.8rem;
+            padding: 5px 15px;
+            border-radius: 0 0 10px 10px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            color: var(--lisha-gold);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .btn-lisha-orange {
+            background-color: var(--lisha-orange);
+            color: white;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-weight: bold;
+            border: none;
+            transition: all 0.3s;
+        }
+
+        .btn-lisha-orange:hover {
+            background-color: #e65100;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 111, 0, 0.4);
+        }
+
+        .btn-outline-light-custom {
+            border: 2px solid white;
+            color: white;
+            border-radius: 50px;
+            padding: 10px 30px;
+            font-weight: bold;
+            transition: all 0.3s;
+            background: transparent;
+        }
+
+        .btn-outline-light-custom:hover {
+            background-color: white;
+            color: var(--lisha-red);
+        }
+
+        /* Features Strip */
+        .features-strip {
+            background-color: var(--lisha-cream);
+            padding: 4rem 0;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item {
+            padding: 2rem;
+            border-radius: 1rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 100%;
+            border: 1px solid transparent;
+        }
+
+        .feature-item:hover {
+            background-color: white;
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-color: rgba(0,0,0,0.05);
+        }
+
+        .feature-item:hover .feature-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        /* Products Section */
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--lisha-orange);
+            margin: 1rem auto 0;
+        }
+
+        .product-card {
+            border: none;
+            transition: transform 0.3s ease;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .product-img-wrapper {
+            overflow: hidden;
+            height: 250px;
+            background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-card img {
+            transition: transform 0.5s ease;
+            max-height: 80%;
+            width: auto;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .price-tag {
+            color: var(--lisha-red);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #dcdcdc;
+            padding-top: 4rem;
+        }
+
+        .footer-heading {
+            color: white;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: #999;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--lisha-orange);
+        }
+
+        /* Utilities */
+        .text-lisha-red { color: var(--lisha-red); }
+        .text-lisha-orange { color: var(--lisha-orange); }
+        
+        .floating-anim {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Floating WhatsApp button */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: grab;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: all 0.3s ease;
+            touch-action: none;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        .floating-whatsapp:active {
+            cursor: grabbing;
+        }
+
+        .floating-whatsapp i {
+            color: white;
+            font-size: 28px;
+        }
+
+        @media (max-width: 768px) {
+            .floating-whatsapp {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+            }
+
+            .floating-whatsapp i {
+                font-size: 26px;
+            }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+            .hero-subtitle { font-size: 1rem; }
+        }
+
+        /* Hide hamburger on desktop (lg and up) */
+        @media (min-width: 992px) {
+            .navbar-toggler.custom-toggler {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNavbar" data-bs-offset="100">
+
+    <!-- Wholesale Banner -->
+    <div class="wholesale-badge shadow">Wholesale & Bulk Supply Only</div>
+
+    <!-- Navbar -->
+    <nav id="mainNavbar" class="navbar navbar-expand-lg fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <!--
+                    Place your image files in the `assets/` folder.
+                    Expected filenames (suggested):
+                      - `assets/logo.png`            (navbar logo, ~160x60)
+                      - `assets/hero.jpg`            (hero background, 1920x1080)
+                      - `assets/products/chicken-curry.jpg`
+                      - `assets/products/chicken-kabab.jpg`
+                      - `assets/products/fish-fry.jpg`
+                      - `assets/products/garam-masala.jpg`
+                      - `assets/products/meat-curry.jpg`
+                      - `assets/story.jpg`
+                    If you prefer different names, update the `src` values below accordingly.
+                -->
+                <img src="assets/ChatGPT Image Nov 25, 2025, 11_44_58 AM.png" alt="Lisha Masala Logo">
+            </a>
+            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" aria-hidden="true"></span>
+                <span class="hamburger" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#products">Bulk Catalog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#story">Our Process</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#recipes">Uses</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-lisha-red" href="#contact">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h5 class="hero-subtitle mb-3">Premium Spices for Hotels, Restaurants & Retailers</h5>
+                    <h1 class="hero-title">Your Trusted Partner for <span class="text-lisha-orange">Bulk Spices</span></h1>
+                    <p class="lead mb-5 mx-auto" style="max-width: 700px; opacity: 0.9;">
+                        Sourcing the finest authentic spices directly from farms to your business. Consistent quality, competitive pricing, and reliable supply chains.
+                    </p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="#products" class="btn btn-lisha-orange btn-lg">View Catalog</a>
+                        <a href="#contact" class="btn btn-outline-light-custom btn-lg">Request Quote</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Strip -->
+    <section class="features-strip">
+        <div class="container">
+            <div class="row text-center g-4">
+                <div class="col-md-4">
+                    <div class="feature-item">
+                        <i class="fa-solid fa-boxes-packing feature-icon text-lisha-red floating-anim"></i>
+                        <h4>Bulk Packaging</h4>
+                        <p class="text-muted mb-0">Available in 5kg, 10kg, 25kg, and 50kg bags for commercial use.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-item">
+                        <i class="fa-solid fa-mortar-pestle feature-icon text-lisha-orange floating-anim" style="animation-delay: 1s;"></i>
+                        <h4>Consistent Quality</h4>
+                        <p class="text-muted mb-0">Standardized grinding and blending to ensure your recipes never change.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-item">
+                        <i class="fa-solid fa-truck-fast feature-icon text-lisha-red floating-anim" style="animation-delay: 2s;"></i>
+                        <h4>Reliable Logistics</h4>
+                        <p class="text-muted mb-0">Timely delivery across the country for seamless inventory management.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-5">
+        <div class="container py-5">
+            <div class="text-center section-title">
+                <h6 class="text-lisha-red fw-bold text-uppercase">B2B Catalog</h6>
+                <h2 class="display-5 fw-bold">Our Premium Blends</h2>
+            </div>
+
+            <div class="row g-4 mt-4 justify-content-center">
+                <!-- Product 1: Chicken Curry Masala -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card product-card h-100">
+                        <div class="product-img-wrapper">
+                            <img src="assets/chicken curry masala.jpeg" class="card-img-top" alt="Chicken Curry Masala">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold">Chicken Curry Masala</h5>
+                            <p class="card-text text-muted small">Authentic Spicy Gravy Mix</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#contact" class="btn btn-outline-dark btn-sm rounded-pill px-3">Request Quote</a>
+                                <button class="btn btn-lisha-red btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#recipeModalChickenCurry">View Recipe</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2: Chicken Kabab Masala -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card product-card h-100">
+                        <div class="product-img-wrapper">
+                            <img src="assets/chicken kabab masala.jpeg" class="card-img-top" alt="Chicken Kabab Masala">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold">Chicken Kabab Masala</h5>
+                            <p class="card-text text-muted small">Crispy Fry & Tandoori Blend</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#contact" class="btn btn-outline-dark btn-sm rounded-pill px-3">Request Quote</a>
+                                <button class="btn btn-lisha-red btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#recipeModalKabab">View Recipe</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3: Fish Fry Masala -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card product-card h-100">
+                        <div class="product-img-wrapper">
+                            <img src="assets/fish fry masala.jpeg" class="card-img-top" alt="Fish Fry Masala">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold">Fish Fry Masala</h5>
+                            <p class="card-text text-muted small">Coastal Marinade Mix (No Salt Needed)</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#contact" class="btn btn-outline-dark btn-sm rounded-pill px-3">Request Quote</a>
+                                <button class="btn btn-lisha-red btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#recipeModalFish">View Recipe</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4: Garam Masala -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card product-card h-100">
+                        <div class="product-img-wrapper">
+                            <img src="assets/garam masala.jpeg" class="card-img-top" alt="Garam Masala">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold">Garam Masala</h5>
+                            <p class="card-text text-muted small">Premium Aromatic Whole Spice Blend</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#contact" class="btn btn-outline-dark btn-sm rounded-pill px-3">Request Quote</a>
+                                <button class="btn btn-lisha-red btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#recipeModalGaram">View Recipe</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5: Meat Curry Masala -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card product-card h-100">
+                        <div class="product-img-wrapper">
+                            <img src="assets/meat curry masala.jpeg" class="card-img-top" alt="Meat Curry Masala">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold">Meat Curry Masala</h5>
+                            <p class="card-text text-muted small">Traditional Mutton/Meat Gravy Mix</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#contact" class="btn btn-outline-dark btn-sm rounded-pill px-3">Request Quote</a>
+                                <button class="btn btn-lisha-red btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#recipeModalMeat">View Recipe</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <a href="#contact" class="btn btn-lisha-red btn-lg">Download Wholesale Price List</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section id="story" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div style="position: relative;">
+                        <img src="https://images.unsplash.com/photo-1509358271058-acd22cc93898?q=80&w=2070&auto=format&fit=crop" alt="Spices Market" class="img-fluid rounded shadow-lg">
+                        <div class="bg-white p-4 shadow rounded position-absolute d-none d-md-block" style="bottom: -30px; right: -30px; max-width: 250px;">
+                            <h5 class="fw-bold text-lisha-red">Since 1999</h5>
+                            <p class="small text-muted mb-0">Three generations of perfecting the art of spice blending.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-5">
+                    <h6 class="text-lisha-orange fw-bold text-uppercase">Our Story</h6>
+                    <h2 class="display-6 fw-bold mb-4 font-serif">Supplying the Food Industry Since 1999</h2>
+                    <p class="text-muted lead">Lisha started as a small home endeavor and has grown into a major supply partner for restaurant chains, catering services, and retail outlets across the region.</p>
+                    <p class="text-muted">We understand that businesses need reliability. We source directly from farmers to ensure you get the best margin without compromising on the authentic flavor that keeps your customers coming back.</p>
+                </div>
+            </div>
+
+            <!-- Video Section -->
+            <div class="row mt-5 pt-4 g-4">
+                <div class="col-12 text-center mb-3">
+                    <h4 class="font-serif text-lisha-red">Experience Our Process</h4>
+                </div>
+                <div class="col-md-6">
+                    <div class="ratio ratio-16x9 rounded-4 shadow-lg border border-4 border-white">
+                        <!-- Video placeholder: JS will detect and insert a playable <video> element if file exists -->
+                        <div class="video-placeholder" data-video-src="assets/Lisha_Masala_Ad_Video_Generation.mp4" aria-label="State of the Art Processing"></div>
+                    </div>
+                    <div class="text-center mt-3">
+                        <h5 class="fw-bold mb-1">Hygienic Processing</h5>
+                        <p class="text-muted small">See how we maintain purity in every pack.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="ratio ratio-16x9 rounded-4 shadow-lg border border-4 border-white">
+                        <!-- Video placeholder: JS will detect and insert a playable <video> element if file exists -->
+                        <div class="video-placeholder" data-video-src="assets/Lisha_Masala_Ad_Prompt_Generation.mp4" aria-label="Sourcing from Farmers"></div>
+                    </div>
+                    <div class="text-center mt-3">
+                        <h5 class="fw-bold mb-1">Direct from Farms</h5>
+                        <p class="text-muted small">Sourcing the finest raw spices ethically.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / WhatsApp Section -->
+    <section id="contact" class="py-5" style="background-color: var(--lisha-dark); color: white;">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h6 class="text-lisha-orange fw-bold text-uppercase mb-2">Get in Touch</h6>
+                    <h2 class="font-serif mb-4">Contact Us for Bulk Orders</h2>
+                    <p class="mb-5 text-secondary">Fill out the form below to chat directly with our sales team on WhatsApp. We usually respond within 15 minutes.</p>
+                </div>
+                <div class="col-lg-8">
+                    <form id="whatsappForm" class="bg-dark p-4 p-md-5 rounded-4 border border-secondary shadow-lg">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label text-secondary small text-uppercase fw-bold">Your Name</label>
+                                <input type="text" id="waName" class="form-control form-control-lg" placeholder="John Doe" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-secondary small text-uppercase fw-bold">Company / Restaurant Name</label>
+                                <input type="text" id="waCompany" class="form-control form-control-lg" placeholder="Lisha Foods Pvt Ltd" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label text-secondary small text-uppercase fw-bold">Your Requirement</label>
+                                <textarea id="waMessage" class="form-control form-control-lg" rows="3" placeholder="I need a quote for 50kg Turmeric..." required></textarea>
+                            </div>
+                            <div class="col-12 text-center mt-4">
+                                <button type="submit" class="btn btn-lisha-orange btn-lg rounded-pill px-5 w-100 py-3 fw-bold">
+                                    <i class="fab fa-whatsapp fa-lg me-2"></i> Send Inquiry via WhatsApp
+                                </button>
+                                <p class="text-muted small mt-3 mb-0"><i class="fas fa-lock me-1"></i> Your details are secure with us.</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row pb-5 border-bottom border-secondary">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <a class="navbar-brand mb-3 d-block" href="#">Lisha<span>.</span></a>
+                    <p class="text-secondary">Bringing the authentic taste of Indian heritage to businesses worldwide. Your reliable partner in bulk spice procurement.</p>
+                    <div class="mt-4">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h5 class="footer-heading">Catalog</h5>
+                    <div class="footer-links">
+                        <a href="#">Bulk Whole Spices</a>
+                        <a href="#">Commercial Powders</a>
+                        <a href="#">HORECA Blends</a>
+                        <a href="#">Export Inquiry</a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h5 class="footer-heading">Company</h5>
+                    <div class="footer-links">
+                        <a href="#">About Us</a>
+                        <a href="#">Sourcing</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <h5 class="footer-heading">Contact</h5>
+                    <p class="small text-secondary">
+                        Mangaluru,<br>
+                        Karnataka - 560001, India<br>
+                        +91 6383106373<br>
+                        hello@lishamasala.com
+                    </p>
+                </div>
+            </div>
+            <div class="row py-4">
+                <div class="col-md-6 text-center text-md-start small text-secondary">
+                    &copy; 2023 Lisha Masala. All rights reserved.
+                </div>
+                <div class="col-md-6 text-center text-md-end small text-secondary">
+                    <a href="#" class="text-secondary text-decoration-none me-3">Privacy Policy</a>
+                    <a href="#" class="text-secondary text-decoration-none">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-4">
+                <div class="modal-body">
+                    <div class="mb-3 text-success">
+                        <i class="fa-solid fa-briefcase fa-4x"></i>
+                    </div>
+                    <h3 class="font-serif fw-bold">Inquiry Received!</h3>
+                    <p class="text-muted">Thank you for your interest. Our sales team will contact your business shortly with our wholesale price list.</p>
+                    <button type="button" class="btn btn-lisha-red rounded-pill px-4 mt-2" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recipe Modals -->
+    
+    <!-- Chicken Curry Recipe -->
+    <div class="modal fade" id="recipeModalChickenCurry" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-lisha-cream">
+                    <h5 class="modal-title font-serif fw-bold text-lisha-red">Chicken Curry Preparation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <h6 class="fw-bold"><i class="fas fa-utensils me-2 text-lisha-orange"></i>Ingredients</h6>
+                    <p class="text-muted small">Chilli, Turmeric, Coriander, Natural Spices.</p>
+                    <hr>
+                    <h6 class="fw-bold"><i class="fas fa-fire me-2 text-lisha-orange"></i>Method</h6>
+                    <ol class="list-group list-group-numbered list-group-flush">
+                        <li class="list-group-item">Marinate 250g chicken with 20g curd and 1 packet of Lisha Chicken Curry Masala. Leave for 15 minutes.</li>
+                        <li class="list-group-item">Make a paste of 50g onion, 50g tomato, and 4 green chillis.</li>
+                        <li class="list-group-item">Saute sliced onion (50g) and curry leaves in edible oil. Add ginger-garlic paste and fry till golden brown.</li>
+                        <li class="list-group-item">Add the onion-tomato paste and the marinated chicken. Mix well.</li>
+                        <li class="list-group-item">Add 50g coconut milk and water as needed. Adjust salt and cook until tender. Garnish with coriander leaves.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chicken Kabab Recipe -->
+    <div class="modal fade" id="recipeModalKabab" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-lisha-cream">
+                    <h5 class="modal-title font-serif fw-bold text-lisha-red">Chicken Kabab Preparation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <h6 class="fw-bold"><i class="fas fa-utensils me-2 text-lisha-orange"></i>Usage</h6>
+                    <p class="text-muted">Perfect for Chicken Fry and Gobi Manchurian.</p>
+                    <hr>
+                    <h6 class="fw-bold"><i class="fas fa-fire me-2 text-lisha-orange"></i>Method</h6>
+                    <ol class="list-group list-group-numbered list-group-flush">
+                        <li class="list-group-item">Clean chicken pieces thoroughly.</li>
+                        <li class="list-group-item">Add ginger-garlic paste and Lisha Kabab Masala to the chicken. Mix well.</li>
+                        <li class="list-group-item">Marinate for 30 minutes.</li>
+                        <li class="list-group-item">Deep fry in hot oil on medium flame until golden brown.</li>
+                        <li class="list-group-item">Serve hot with raw onion rings and lemon wedges.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fish Fry Recipe -->
+    <div class="modal fade" id="recipeModalFish" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-lisha-cream">
+                    <h5 class="modal-title font-serif fw-bold text-lisha-red">Fish Fry Preparation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <h6 class="fw-bold"><i class="fas fa-info-circle me-2 text-lisha-orange"></i>Note</h6>
+                    <p class="badge bg-success">No Need to Add Salt</p>
+                    <hr>
+                    <h6 class="fw-bold"><i class="fas fa-fire me-2 text-lisha-orange"></i>Method</h6>
+                    <ol class="list-group list-group-numbered list-group-flush">
+                        <li class="list-group-item">Clean the fish slices properly.</li>
+                        <li class="list-group-item">Add ginger-garlic paste and Lisha Fish Fry Masala. Coat the fish evenly.</li>
+                        <li class="list-group-item">Marinate for 30 minutes to let the flavors absorb.</li>
+                        <li class="list-group-item">Deep fry in hot oil on medium flame until crispy and golden brown.</li>
+                        <li class="list-group-item">Serve with onion and lemon.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Garam Masala Recipe -->
+    <div class="modal fade" id="recipeModalGaram" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-lisha-cream">
+                    <h5 class="modal-title font-serif fw-bold text-lisha-red">Garam Masala Usage</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <h6 class="fw-bold"><i class="fas fa-leaf me-2 text-lisha-orange"></i>Ingredients</h6>
+                    <p class="text-muted small">Coriander, Aniseed, Chilli, Cassia, Garlic, Clove, Star Anise, Pepper, Dry Ginger, Cumin, Cardamom, Nutmeg, Curry Leaf.</p>
+                    <hr>
+                    <h6 class="fw-bold"><i class="fas fa-utensils me-2 text-lisha-orange"></i>Tip</h6>
+                    <p>This is a premium mixture of aromatic spices. Adding just <strong>5g to 10g</strong> of Lisha Garam Masala will significantly enhance the taste and aroma of both vegetarian and non-vegetarian dishes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Meat Curry Recipe -->
+    <div class="modal fade" id="recipeModalMeat" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-lisha-cream">
+                    <h5 class="modal-title font-serif fw-bold text-lisha-red">Meat/Mutton Curry Preparation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <h6 class="fw-bold"><i class="fas fa-fire me-2 text-lisha-orange"></i>Method</h6>
+                    <ol class="list-group list-group-numbered list-group-flush">
+                        <li class="list-group-item">Marinate 250g mutton with 20g curd and 50ml packet of Lisha Meat Curry Masala. Leave for 15 minutes.</li>
+                        <li class="list-group-item">Make a paste of 50g onion, 50g tomato, and 4 green chillis.</li>
+                        <li class="list-group-item">Saute sliced onion, curry leaves, and ginger-garlic paste in oil until golden brown.</li>
+                        <li class="list-group-item">Add the prepared paste and marinated mutton. Mix well.</li>
+                        <li class="list-group-item">Add 50g coconut milk, water, and salt to taste.</li>
+                        <li class="list-group-item">Cook for 30 minutes until meat is tender. Garnish with coriander leaves.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script>
+        // WhatsApp Form Handling
+        document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get values
+            const name = document.getElementById('waName').value;
+            const company = document.getElementById('waCompany').value;
+            const message = document.getElementById('waMessage').value;
+            
+            // Construct the message
+            const text = `*New Wholesale Inquiry*\n\n*Name:* ${name}\n*Company:* ${company}\n*Message:* ${message}`;
+            
+            // Encode message for URL
+            const encodedText = encodeURIComponent(text);
+            
+            // Destination Phone Number (International format without +)
+            // Replace this with your actual business WhatsApp number
+            const phoneNumber = "916383106373"; 
+            
+            // Redirect to WhatsApp
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedText}`, '_blank');
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('mainNavbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow');
+                navbar.style.padding = '0.5rem 0';
+            } else {
+                navbar.classList.remove('shadow');
+                navbar.style.padding = '1rem 0';
+            }
+        });
+
+        /* Video detection and insertion
+           - Finds `.video-placeholder` elements with `data-video-src`
+           - Tries a HEAD fetch to confirm the file exists (may be blocked on file://)
+           - If present and browser can play MP4, injects an HTML5 <video> element with controls
+           - Otherwise shows a friendly fallback with a download link
+        */
+        (function() {
+            const placeholders = document.querySelectorAll('.video-placeholder');
+
+            function createFallback(container, src) {
+                container.innerHTML = `
+                    <div class="d-flex flex-column justify-content-center align-items-center text-center h-100 w-100" style="background:#000;color:#fff;">
+                        <div>Video not available</div>
+                        <a class="btn btn-outline-light btn-sm mt-3" href="${src}" download>Download video</a>
+                    </div>
+                `;
+            }
+
+            function insertVideo(container, src, title) {
+                const video = document.createElement('video');
+                video.setAttribute('controls', '');
+                video.setAttribute('playsinline', '');
+                video.className = 'w-100 h-100 rounded-4';
+                video.preload = 'metadata';
+
+                const source = document.createElement('source');
+                source.src = src;
+                source.type = 'video/mp4';
+                video.appendChild(source);
+
+                // poster could be added if you have a thumbnail
+                if (title) video.title = title;
+
+                // handle playback error -> show fallback
+                video.addEventListener('error', function() {
+                    createFallback(container, src);
+                });
+
+                // If browser reports it can't play MP4, show fallback
+                const canPlay = video.canPlayType && video.canPlayType('video/mp4');
+                if (!canPlay) {
+                    createFallback(container, src);
+                    return;
+                }
+
+                // Clear placeholder and insert video element
+                container.innerHTML = '';
+                container.appendChild(video);
+            }
+
+            placeholders.forEach(container => {
+                const src = container.dataset.videoSrc;
+                const title = container.getAttribute('aria-label') || '';
+
+                if (!src) {
+                    createFallback(container, '');
+                    return;
+                }
+
+                // Try a quick HEAD request to see if the file exists on same-origin HTTP server
+                // Note: when opening the page via file://, fetch may fail — in that case we'll attempt to insert the video element directly
+                fetch(src, { method: 'HEAD' }).then(resp => {
+                    if (resp.ok) {
+                        insertVideo(container, src, title);
+                    } else {
+                        createFallback(container, src);
+                    }
+                }).catch(() => {
+                    // Could be CORS or file:// limitations — attempt to insert the video element directly
+                    try {
+                        insertVideo(container, src, title);
+                    } catch (e) {
+                        createFallback(container, src);
+                    }
+                });
+            });
+        })();
+
+        // Hamburger toggler animation: sync with Bootstrap collapse show/hide
+        (function() {
+            const toggler = document.querySelector('.navbar-toggler.custom-toggler');
+            const collapseEl = document.getElementById('navbarNav');
+            if (!toggler || !collapseEl) return;
+
+            // When bootstrap shows the collapse, it fires `show.bs.collapse` event
+            collapseEl.addEventListener('show.bs.collapse', function() {
+                toggler.classList.add('open');
+            });
+
+            collapseEl.addEventListener('hide.bs.collapse', function() {
+                toggler.classList.remove('open');
+            });
+
+            // Ensure ARIA expanded state toggles and class sync when user clicks the button
+            toggler.addEventListener('click', function() {
+                // Delay to let Bootstrap update aria-expanded; read it to decide state
+                setTimeout(() => {
+                    const expanded = toggler.getAttribute('aria-expanded') === 'true';
+                    toggler.classList.toggle('open', expanded);
+                }, 50);
+            });
+        })();
+
+        // Close navbar on nav-link click and smooth-scroll target into view (account for fixed navbar)
+        (function() {
+            const navLinks = document.querySelectorAll('#navbarNav .nav-link');
+            const navbar = document.getElementById('mainNavbar');
+            const collapseEl = document.getElementById('navbarNav');
+            if (!navLinks.length || !navbar) return;
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (!href || href.charAt(0) !== '#') return; // ignore external links
+
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    const navHeight = navbar.offsetHeight;
+
+                    if (target) {
+                        const targetTop = window.pageYOffset + target.getBoundingClientRect().top;
+                        const scrollTo = Math.max(0, targetTop - navHeight - 8);
+                        window.scrollTo({ top: scrollTo, behavior: 'smooth' });
+                    }
+
+                    // Collapse the navbar using Bootstrap's Collapse API
+                    try {
+                        const bsCollapse = bootstrap.Collapse.getInstance(collapseEl) || new bootstrap.Collapse(collapseEl);
+                        bsCollapse.hide();
+                    } catch (err) {
+                        // If bootstrap isn't available or fails, just remove class
+                        collapseEl.classList.remove('show');
+                    }
+                });
+            });
+        })();
+
+    </script>
+</body>
+</html>
